@@ -12,16 +12,16 @@ namespace SportsApp
 {
     public partial class Form4 : Form
     {           
-        public MyDatabase Run { get; private set; } = new MyDatabase();
+        public MyDatabase Exercises { get; private set; } = new MyDatabase();
         public Form4()
         {
             InitializeComponent();
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            Run.Date = dateTimePicker1.Value;
-            Run.Distance = Convert.ToDouble (textBox1.Text);
-            Run.Health = textBox2.Text;            
+            Exercises.Date = dateTimePicker1.Value;
+            Exercises.Distance = Convert.ToDouble (textBox1.Text);
+            Exercises.Health = textBox2.Text;            
             DialogResult = DialogResult.OK;
         }
         private void Button2_Click(object sender, EventArgs e)

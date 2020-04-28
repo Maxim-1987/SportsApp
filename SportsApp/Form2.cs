@@ -12,26 +12,25 @@ namespace SportsApp
 {
     public partial class Form2 : Form
     {
-        WorkWithFiles wwf = new WorkWithFiles();
 
-        WorkWithFiles.Run database = null;       
+        Exercises database = null;       
         public Form2()
         {
             InitializeComponent();
         }
         private void UpdateInfo()
         {
-            MyDatabase run = database.CurrentRun;
-            if (run == null)
+            MyDatabase exercises = database.CurrentExercises;
+            if (exercises == null)
             {               
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox1.Text = "";
                 return;
             }
-            dateTimePicker.Value = run.Date;
-            textBox2.Text = run.Distance.ToString();
-            textBox3.Text = run.Health;
+            dateTimePicker.Value = exercises.Date;
+            textBox2.Text = exercises.Distance.ToString();
+            textBox3.Text = exercises.Health;
             textBox1.Text = database.CurrentIndex.ToString();
         }       
         private void Btn1_Click(object sender, EventArgs e)
@@ -40,13 +39,13 @@ namespace SportsApp
             f4.ShowDialog();
             if(f4.DialogResult == DialogResult.OK)
             {
-                database.Add(f4.Run);
+                database.Add(f4.Exercises);
                 UpdateInfo();
             }
         } 
         private void СоздатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            database = new WorkWithFiles.Run();
+            database = new Exercises();
         }
         private void Btn3_Click(object sender, EventArgs e)
         {
@@ -73,7 +72,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database = new WorkWithFiles.Run();
+                database = new Exercises();
                 database.Load(dialog.FileName);
                 UpdateInfo();
             }

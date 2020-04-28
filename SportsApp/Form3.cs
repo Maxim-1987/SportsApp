@@ -11,31 +11,30 @@ using System.Windows.Forms;
 namespace SportsApp
 {
     public partial class Form3 : Form
-    {
-        WorkWithFiles wwf = new WorkWithFiles();
-        WorkWithFiles.Run database = null;
+    {        
+        Exercises database = null;
         public Form3()
         {
             InitializeComponent();
         }
         private void UpdateInfo()
         {
-            MyDatabase run = database.CurrentRun;
-            if (run == null)
+            MyDatabase exercises = database.CurrentExercises;
+            if (exercises == null)
             {
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox1.Text = "";
                 return;
             }
-            dateTimePicker1.Value = run.Date;
-            textBox2.Text = run.Quantity.ToString();
-            textBox3.Text = run.Health;
+            dateTimePicker1.Value = exercises.Date;
+            textBox2.Text = exercises.Quantity.ToString();
+            textBox3.Text = exercises.Health;
             textBox1.Text = database.CurrentIndex.ToString();
         }
         private void СоздатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            database = new WorkWithFiles.Run();
+            database = new Exercises();
         }       
         private void СохранитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -52,7 +51,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database = new WorkWithFiles.Run();
+                database = new Exercises();
                 database.Load(dialog.FileName);
                 UpdateInfo();
             }            
@@ -63,7 +62,7 @@ namespace SportsApp
             f5.ShowDialog();
             if (f5.DialogResult == DialogResult.OK)
             {
-                database.Add(f5.Run);
+                database.Add(f5.Exercises);
                 UpdateInfo();
             }
         }
@@ -79,7 +78,7 @@ namespace SportsApp
         }
         private void СоздатьToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            database = new WorkWithFiles.Run();
+            database = new Exercises();
         }
         private void СохранитьToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
@@ -96,7 +95,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database = new WorkWithFiles.Run();
+                database = new Exercises();
                 database.Load(dialog.FileName);
                 UpdateInfo();
             }
