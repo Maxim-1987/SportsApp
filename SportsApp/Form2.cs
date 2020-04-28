@@ -12,8 +12,9 @@ namespace SportsApp
 {
     public partial class Form2 : Form
     {
-        //WorkWithFiles wwf = new WorkWithFiles();
-        Run database = null;       
+        WorkWithFiles wwf = new WorkWithFiles();
+
+        WorkWithFiles.Run database = null;       
         public Form2()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace SportsApp
         } 
         private void СоздатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            database = new Run();
+            database = new WorkWithFiles.Run();
         }
         private void Btn3_Click(object sender, EventArgs e)
         {
@@ -72,7 +73,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database = new Run();
+                database = new WorkWithFiles.Run();
                 database.Load(dialog.FileName);
                 UpdateInfo();
             }

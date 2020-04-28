@@ -13,7 +13,7 @@ namespace SportsApp
     public partial class Form3 : Form
     {
         WorkWithFiles wwf = new WorkWithFiles();
-        Run database = null;
+        WorkWithFiles.Run database = null;
         public Form3()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace SportsApp
         }
         private void СоздатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            database = new Run();
+            database = new WorkWithFiles.Run();
         }       
         private void СохранитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                wwf.Save(dialog.FileName);
+                database.Save(dialog.FileName);
             }
         }
         private void ЗагрузитьToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -52,8 +52,8 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database = new Run();
-                wwf.Load(dialog.FileName);
+                database = new WorkWithFiles.Run();
+                database.Load(dialog.FileName);
                 UpdateInfo();
             }            
         }
@@ -79,7 +79,7 @@ namespace SportsApp
         }
         private void СоздатьToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            database = new Run();
+            database = new WorkWithFiles.Run();
         }
         private void СохранитьToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
@@ -96,7 +96,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database = new Run();
+                database = new WorkWithFiles.Run();
                 database.Load(dialog.FileName);
                 UpdateInfo();
             }
