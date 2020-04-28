@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace SportsApp
-{
+{        
     public class MyDatabase
     {                        
         public double Distance { get; set; }
@@ -29,9 +29,10 @@ namespace SportsApp
         }        
     }
     public class Run
-    {        
-        List<MyDatabase> list;
-        int index;
+    {
+        
+        public List<MyDatabase> list;
+        public int index;
         public int CurrentIndex
         {
             get
@@ -78,7 +79,7 @@ namespace SportsApp
                 }
             }
         }
-        public void Save (string fileName)
+        public void Save(string fileName)
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<MyDatabase>));
             Stream fStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
@@ -86,7 +87,7 @@ namespace SportsApp
             fStream.Close();
             index = 0;
         }
-        public void Load (string fileName)
+        public void Load(string fileName)
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<MyDatabase>));
             Stream fStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);

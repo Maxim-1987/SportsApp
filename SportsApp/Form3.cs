@@ -12,6 +12,7 @@ namespace SportsApp
 {
     public partial class Form3 : Form
     {
+        WorkWithFiles wwf = new WorkWithFiles();
         Run database = null;
         public Form3()
         {
@@ -42,7 +43,7 @@ namespace SportsApp
             dialog.Filter = "XML файл|*.XML|Все файлы|*.*";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                database.Save(dialog.FileName);
+                wwf.Save(dialog.FileName);
             }
         }
         private void ЗагрузитьToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace SportsApp
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 database = new Run();
-                database.Load(dialog.FileName);
+                wwf.Load(dialog.FileName);
                 UpdateInfo();
             }            
         }

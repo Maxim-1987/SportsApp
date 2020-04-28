@@ -72,6 +72,8 @@
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkWithFiles.cs" />
+    <Compile Include="Statistics.cs" />
     <Compile Include="UserLogin.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
