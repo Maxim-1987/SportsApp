@@ -11,7 +11,8 @@ using System.Windows.Forms;
 namespace SportsApp
 {
     public partial class Form4 : Form
-    {           
+    {
+        
         public MyDatabase Exercises { get; private set; } = new MyDatabase();
         public Form4()
         {
@@ -19,8 +20,10 @@ namespace SportsApp
         }
         private void Button1_Click(object sender, EventArgs e)
         {
+            StatRun stat = new StatRun(Exercises.Distance);
             Exercises.Date = dateTimePicker1.Value;
-            Exercises.Distance = Convert.ToDouble (textBox1.Text);
+            Exercises.Distance = Convert.ToDouble (textBox1.Text);            
+            stat.SumExercises(Exercises.Distance);
             Exercises.Health = textBox2.Text;            
             DialogResult = DialogResult.OK;
         }

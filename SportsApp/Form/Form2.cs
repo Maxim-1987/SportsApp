@@ -40,7 +40,7 @@ namespace SportsApp
             if(f4.DialogResult == DialogResult.OK)
             {
                 database.Add(f4.Exercises);
-                UpdateInfo();
+                UpdateInfo();                
             }
         } 
         private void СоздатьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,6 +76,11 @@ namespace SportsApp
                 database.Load(dialog.FileName);
                 UpdateInfo();
             }
+        }
+
+        private void СтатистикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

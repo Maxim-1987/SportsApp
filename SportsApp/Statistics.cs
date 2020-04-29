@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace SportsApp
 {
-    class Statistics
-    {
-        public int _Rate { get; private set; }
-        public int _Id { get; private set; }
-        public string _Name { get; private set; }
-        public float _MonthlyPayment { get; set; }
-        protected Statistics(int rate, int id, string name)
-        {
-            _Rate = rate;
-            _Id = id;
-            _Name = name;
-        }
+    internal abstract class Statistics
+    {        
+        protected double _Ex;
+        protected Statistics (double ex)
+            {
+            _Ex = ex;            
+            }
+        public abstract double SumExercises(double ex);
+        
+        
     }
 }
